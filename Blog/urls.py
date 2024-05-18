@@ -1,0 +1,9 @@
+from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+from .views import blog,categoria
+urlpatterns = [
+    path('',blog,name="Blog"),
+    path('categoria/<categoria_id>/',categoria,name="Categoria")
+]
+urlpatterns+= static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)

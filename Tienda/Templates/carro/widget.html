@@ -1,0 +1,91 @@
+<div class="carro" id="carro">
+    <table class="table table-bordered" style="color: black;">
+        <thead>
+            <tr>
+                <th colspan="3" class="text-center">
+                    Carro de compras
+                </th>
+            </tr>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Suma</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if request.session.carro.items %}
+                {% for key,value in request.session.carro.items %}
+                    <tr class="text-center">
+                        <td>{{value.nombre}}</td>
+                        <td>{{value.cantidad}}</td>
+                        <td>
+                            <a href="{% url 'carro:Agrega' value.producto_id %}" class="btn btn-success">+</a>
+                            <a href="{% url 'carro:Resta' value.producto_id %}" class="btn btn-success">-</a><br>
+    
+                            ${{value.precio}}
+    
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+            <tr>
+                <td colspan="3"> 
+                    <div class="alert alert-danger text-center">
+                        Sin productos
+                    </div>
+                </td>
+            </tr>
+            {% endif %}
+        </tbody>
+        <tfoot>
+            <tr >
+                <td colspan="3">
+                    Total: ${{importe_total_carro}}
+                </td>
+            </tr>
+            {% if request.session.carro.items %}
+            <tr>
+                <td colspan="3" style="text-align: center;">
+                    <a href="{% url 'Pedido' %}" class="btn btn-success">Comprar</a>
+                </td>
+            </tr>
+            {% endif %}
+        </tfoot>
+    </table>
+    
+</div>
+<div class="btnCarro">
+    <div id="btnCarro">
+        <span class="material-symbols-outlined text-center"  style="text-align: center;vertical-align: center;" id="spancarro">
+            close
+        </span>
+    </div>
+   
+</div>
+
+<script type="text/javascript">
+    
+    var btnCarro = document.getElementById("btnCarro");
+    var spancarro = document.getElementById("spancarro");
+    var carro = document.getElementById("carro");
+    var changed = false
+    btnCarro.onclick= function(){
+        if (!changed){
+            carro.classList.remove("mostrar");
+            carro.classList.add("ocultar");
+            spancarro.innerHTML = "shopping_cart";
+            changed = true
+            
+            
+        }
+        else{
+            carro.classList.remove("ocultar");
+            carro.classList.add("mostrar");
+            spancarro.innerHTML = "close";
+            changed=false
+        }
+
+    }
+
+    
+</script>

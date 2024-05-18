@@ -1,0 +1,35 @@
+{% extends 'BikeSupplier41APP/base.html' %} 
+{% load static %} 
+{% block content%}
+<link rel="stylesheet" href="{% static 'tienda/css/tienda.css' %}">
+<section class="tienda">
+  <div class="carrito_container">
+    {% if request.user.is_authenticated %}
+      {% include 'carro/widget.html' %}
+    {% else %}
+      <span class="alert alert-danger text-center">Inicia sesión para ver el carro</span>
+    {% endif %}
+  </div>
+  <div class="container">
+    
+    <div class="row">
+      {%for producto in productos %}
+      <div class="col">
+        <div class="card card_item" style="width: 100%; margin: 5px 5px;" >
+          <img src="{{producto.imagen.url}}" alt="" class="card-img-top" />
+          <div class="card-body">
+            <h7 class="card-title">{{producto.nombre}}</h7>
+            <p class="card-text">${{producto.precio}}</p>
+  
+          </div>
+          <div class="card-footer text-center">
+              <a href="{% url 'carro:Agrega' producto.id %}" class="btn btn-success">Agregar al carro</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endblock %}
+  
+</section>

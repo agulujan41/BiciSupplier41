@@ -1,0 +1,19 @@
+{% extends 'BikeSupplier41APP/base.html' %}
+   
+{% load static %}
+
+{% block content %} 
+    <div class="contenedorFormulario">
+        {% if 'valido' in request.GET %}
+            <p style="color: rgb(116, 254, 249); text-align: center;">Información enviada correctamente.</p>
+        {% endif %}
+        <form action="" method="POST" style="text-align: center;"> {% csrf_token %}
+            <table style="color:white; margin: 20px auto;">
+                {{formcontacto.as_table }}
+            </table>
+            <input type="submit" value="Enviar" class="btn btn-success" style="width: 160px;">
+        </form>
+       
+    </div>
+
+{% endblock %}

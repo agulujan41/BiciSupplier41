@@ -1,0 +1,156 @@
+.card_item {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    padding: 10px;
+}
+
+.card_item img {
+    max-height: 200px;
+    min-height: 200px;
+    background: transparent no-repeat center;
+    background-size: cover;
+    object-fit: contain;
+}
+
+.carrito_container {
+
+    border-radius: 6px;
+    position: fixed;
+    z-index: 100;
+
+    bottom: 20px;
+    right: 30px;
+    padding: 30px;
+}
+
+.carro {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    overflow-y: auto;
+    height: 70vh;
+    width: auto;
+    padding: 10px;
+    -webkit-animation: zoomIn 2s ease .5s forwards;
+   opacity:0;
+}
+
+.carro::-webkit-scrollbar {
+    width: 12px;
+}
+
+.carro::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.carro::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.btnCarro {
+
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+
+}
+
+.btnCarro div {
+    height: 60px;
+    width: 60px;
+    color: #218838;
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    border-radius: 50%;
+    cursor: pointer;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    -webkit-animation: zoomIn 2s ease .5s forwards;
+   opacity:0;
+}
+
+.btnCarro span {
+    text-align: center;
+    font-size: 1.8em;
+}
+
+.tienda {
+    background-color: rgba(255, 255, 255, 0.663);
+}
+
+
+@-webkit-keyframes zoomIn {
+    from {
+        opacity: 0;
+        -webkit-transform: scale3d(0.3, 0.3, 0.3);
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        -webkit-transform: scale3d(0.3, 0.3, 0.3);
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.zoomIn {
+    -webkit-animation-name: zoomIn;
+    animation-name: zoomIn;
+}
+
+
+/*zoom out*/
+@-webkit-keyframes zoomOut {
+    from {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: scale3d(0, 0, 0);
+        transform: scale3d(0, 0, 0);
+    }
+}
+@keyframes zoomOut {
+    from {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: scale3d(0, 0, 0);
+        transform: scale3d(0, 0, 0);
+    }
+}
+
+.zoomIn {
+    -webkit-animation-name: zoomOut;
+    animation-name: zoomOut;
+}
+
+.mostrar{
+    -webkit-animation: zoomIn 1s ease .3s forwards;
+    display: block;
+}
+.ocultar{
+    display: none;
+    
+}
