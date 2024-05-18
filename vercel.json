@@ -1,13 +1,17 @@
 {
-    "builds": [{
+    "builds": [
+      {
         "src": "BikeSupplier41/wsgi.py",
         "use": "@vercel/python",
-        "config": { "maxLambdaSize": "15mb", "runtime": "python@3.9" }
-    }],
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.8" }
+      }
+    ],
     "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "BikeSupplier41/wsgi.py"
-        }
+      {
+        "src": "/(.*)",
+        "dest": "BikeSupplier41/wsgi.py"
+      }
     ]
-}
+    }
+    
+    
